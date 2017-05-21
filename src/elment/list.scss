@@ -1,0 +1,17 @@
+kira-list {
+    max-width: 600px;
+    margin: 0;
+    padding: 8px 16px 0;
+    line-height: 1.5rem;
+    list-style-type: none;
+    // According to the mocks and stickersheet, the line-height is adjusted to 24px for text content,
+    // same as for subheading1.
+    //line-height: map-get(map-get($mdc-typography-styles, subheading1), line-height);
+    list-style-type: none;
+    // ul defalut 
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
