@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
-
+        "outDir": "build",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "declaration": true,
+        "declaration": false,
         "lib": ["dom", "es6"],
         "module": "commonjs",
         "moduleResolution": "node",
@@ -13,7 +13,7 @@
         "target": "es2016"
     },
     "include": [
-        "src/*", "src/*/*"
+        "src"
     ],
     "exclude": [
         "node_module"

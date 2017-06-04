@@ -11,7 +11,7 @@ export interface customElemntParameter {
 const CustomElement = ( parameter: customElemntParameter) => {
     
     return (element : Function) => { 
-        // console.log(element);
+        console.log(element);
         window['customElements'].define(parameter.tagName, element, parameter.option);
     };
 };      

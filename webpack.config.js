@@ -4,6 +4,7 @@
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require("path");
+var ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
     entry: ['./src/index.ts', './src/index.scss'],
@@ -24,10 +25,19 @@ module.exports = {
                 test: /\.ts?$/,
                 use: "source-map-loader"
             },
+            {
+
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                options: {
+                    transpileOnly: true // IMPORTANT! use transpileOnly mode to speed-up compilation
+                },
+                exclude: /node_modules/
+            },
             { // sass / scss loader for webpack
                 test: /\.(sass|scss)$/,
                 loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
-            },
+            }
             // {
             //     test: /\.scss$/,
             //     use: ExtractTextPlugin.extract({
@@ -36,12 +46,6 @@ module.exports = {
             //         use: ['css-loader', 'sass-loader']
             //     })
             // },
-            {
-                test: /\.ts?$/,
-                loader: 'ts-loader',
-                exclude: /node_modules/,
-
-            }
 
         ]
     },
@@ -49,9 +53,10 @@ module.exports = {
         extensions: [".tsx", ".ts", ".js"]
     },
     plugins: [
+        new ForkTsCheckerWebpackPlugin(),
         new ExtractTextPlugin({
             filename: 'style.css'
-        }),
+        })
         // new webpack.optimize.CommonsChunkPlugin({
         //   name: "client",        
         //   filename :'client.min.js',
