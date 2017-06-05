@@ -5,10 +5,9 @@ import { Log } from '../../utils/Log';
 @CustomElement({ tagName: 'kira-drawer' })
 export class Drawer extends HTMLElement {
 
-
     constructor() {
         super();
-        console.log('Drawer 생성 !!')
+        console.log('Drawer 생성 !!');
     }
 
     // attribute 값이 변경 될떄마다 호출되는 가져올 attribute의 값을 지정한다. 배열 형태로 리턴하면 해당 
@@ -16,7 +15,6 @@ export class Drawer extends HTMLElement {
     static get observedAttributes() {
         return ['name', 'disabled'];
     }
-
 
 
     get disabled() {
@@ -34,6 +32,8 @@ export class Drawer extends HTMLElement {
         }
     }
 
+
+
     @Log()
     attributeChangedCallback(name: String, oldValue: String, newValue: String) {
         console.log(name);
@@ -41,6 +41,6 @@ export class Drawer extends HTMLElement {
         console.log(newValue);
     }
 
-
+    
 
 } 
